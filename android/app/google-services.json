@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "731929336523",
+    "project_id": "sentiments-cf33e",
+    "storage_bucket": "sentiments-cf33e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731929336523:android:7b15098446cd92ff4c594e",
+        "android_client_info": {
+          "package_name": "com.mycompany.sentiments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFVbesoOkPe1jFeIYviWM42wIULeQXuKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

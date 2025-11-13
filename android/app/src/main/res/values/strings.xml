@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sentiments</string>
+    <!-- Google Play Billing -->
+    <string name="play_billing_enabled">true</string>
+    <!-- Facebook SDK -->
+    <string name="facebook_app_id">833034033223652</string>
+    <string name="facebook_client_token">980b4a759f1ea632be0e708a3ace2db1</string>
+</resources>

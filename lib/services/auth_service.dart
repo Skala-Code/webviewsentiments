@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthService {
-  static const String baseUrl = 'https://sentiments.skalacode.com';
+  static const String baseUrl = 'https://testesentiments.skalacode.com';
   static const FlutterSecureStorage _secureStorage = FlutterSecureStorage();
   
   static const String _tokenKey = 'auth_token';

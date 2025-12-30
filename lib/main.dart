@@ -233,7 +233,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   String? _currentIcon;
   bool _iconInitialized = false;
   bool _isMonitoring = true;
-  String _currentUrl = "https://sentiments.skalacode.com"; // URL inicial (sem barra no final)
+  String _currentUrl = "https://testesentiments.skalacode.com"; // URL inicial (sem barra no final)
   bool _tokenValidated = false;
   Timer? _tokenSaveTimer;
   Timer? _purchaseTimeoutTimer; // Timer para timeout de compra
@@ -293,9 +293,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
         final token = await AuthService.getToken();
         if (token != null) {
           if (perguntasCompletas) {
-            _currentUrl = 'https://sentiments.skalacode.com/dashboard?token=$token';
+            _currentUrl = 'https://testesentiments.skalacode.com/dashboard?token=$token';
           } else {
-            _currentUrl = 'https://sentiments.skalacode.com/perguntas-iniciais?token=$token';
+            _currentUrl = 'https://testesentiments.skalacode.com/perguntas-iniciais?token=$token';
           }
           debugPrint('[AUTH] URL inicial atualizada para: $_currentUrl');
         }
@@ -750,7 +750,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       }
       
       // Construir a URL para o endpoint de verificação de receipt
-      final url = Uri.parse('https://sentiments.skalacode.com/api/ios-purchase-verify');
+      final url = Uri.parse('https://testesentiments.skalacode.com/api/ios-purchase-verify');
       
       print('🔄 [MAIN] Enviando dados para backend...');
       print('📧 [MAIN] Email: $_userEmail');
@@ -800,7 +800,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
             // Em vez de navegar direto para dashboard, primeiro autenticar
             final userId = responseData['user_id'];
             final userEmail = _userEmail ?? 'user@sentiments.app'; // Fallback se email não disponível
-            final loginUrl = 'https://sentiments.skalacode.com/premium-login?email=${Uri.encodeComponent(userEmail)}&user_id=$userId&from_app=true';
+            final loginUrl = 'https://testesentiments.skalacode.com/premium-login?email=${Uri.encodeComponent(userEmail)}&user_id=$userId&from_app=true';
             
             print('🔐 [MAIN] Navegando para autenticação: $loginUrl');
             
@@ -905,7 +905,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   Future<bool> checkIfUserHasPremium() async {
     try {
       final response = await http.get(
-        Uri.parse('https://sentiments.skalacode.com/api/premium/status'),
+        Uri.parse('https://testesentiments.skalacode.com/api/premium/status'),
         headers: {'Accept': 'application/json'}
       );
 
@@ -2244,7 +2244,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       if (kDebugMode) print('📨 Enviando horários para API: $formattedSchedules');
 
       final response = await http.post(
-        Uri.parse('https://sentiments.skalacode.com/api/notification-schedules'),
+        Uri.parse('https://testesentiments.skalacode.com/api/notification-schedules'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'firebase_uid': firebaseUid,
@@ -2273,7 +2273,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       if (kDebugMode) print('Creating user in API with Firebase UID: $firebaseUid');
       
       final response = await http.post(
-        Uri.parse('https://sentiments.skalacode.com/api/users'),
+        Uri.parse('https://testesentiments.skalacode.com/api/users'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'email': email,
@@ -2378,7 +2378,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       }
 
       final response = await http.post(
-        Uri.parse('https://sentiments.skalacode.com/api/fcm-flutter'),
+        Uri.parse('https://testesentiments.skalacode.com/api/fcm-flutter'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'email': _userEmail,
@@ -2960,7 +2960,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
               Map<String, dynamic> laravelResponse = {};
               try {
                 final response = await http.post(
-                  Uri.parse('https://sentiments.skalacode.com/api/flutter/create-user'),
+                  Uri.parse('https://testesentiments.skalacode.com/api/flutter/create-user'),
                   headers: {'Content-Type': 'application/json'},
                   body: jsonEncode({
                     'nome': userName,
@@ -3001,7 +3001,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
               
               // 5. Redirecionar para URL do Laravel se fornecido
               if (laravelResponse['redirect_url'] != null) {
-                final redirectUrl = 'https://sentiments.skalacode.com${laravelResponse['redirect_url']}';
+                final redirectUrl = 'https://testesentiments.skalacode.com${laravelResponse['redirect_url']}';
                 print('🔄 [HANDLER] Redirecionando para: $redirectUrl');
                 await _webViewController.loadUrl(
                   urlRequest: URLRequest(url: WebUri(redirectUrl))

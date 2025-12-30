@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(keytool:*)",
+      "Bash(where:*)",
+      "Bash(cmd /c \"where java\")",
+      "Bash(cmd /c \"echo %JAVA_HOME%\")",
+      "Bash(cmd /c \"dir /s /b C:\\Program Files\\Java\\*keytool.exe 2>nul || dir /s /b C:\\Program Files\\Android\\*keytool.exe 2>nul || dir /s /b %LOCALAPPDATA%\\Android\\*keytool.exe 2>nul\")",
+      "Bash(flutter doctor:*)",
+      "Bash(cmd /c:*)",
+      "Bash(\"C:\\Program Files\\Android\\Android Studio\\jbr\\bin\\keytool\" -genkey -v -keystore \"c:\\Users\\deivi\\OneDrive\\Documentos\\GitHub\\webviewsentiments\\android\\sentiments-release.jks\" -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias sentiments -storepass sentiments123 -keypass sentiments123 -dname \"CN=Sentiments, OU=Mobile, O=Sentiments, L=Sao Paulo, ST=SP, C=BR\")"
     ],
     "deny": [],
     "ask": []
